@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Palette translated from ava-fit-ios/src/theme/tokens.ts's navy/cyan
+   "clinical telemetry" identity — deliberately the same brand as the app
+   this site markets, not a separate marketing palette. This is a single
+   fixed dark theme (no light-mode toggle), so everything lives in :root
+   rather than a .dark override block. */
+@layer base {
+  :root {
+    --background: 222 42% 5%;        /* #070A11 */
+    --foreground: 221 53% 94%;       /* #E8EDF8 */
+    --card: 221 42% 9%;              /* #0D1320 */
+    --card-foreground: 221 53% 94%;
+    --popover: 221 42% 9%;
+    --popover-foreground: 221 53% 94%;
+    --primary: 188 100% 48%;         /* #00D4F5 */
+    --primary-foreground: 202 73% 6%;/* #04121A */
+    --secondary: 218 46% 12%;        /* #101A2B */
+    --secondary-foreground: 221 53% 94%;
+    --muted: 221 44% 7%;             /* #0A0F1A */
+    --muted-foreground: 221 30% 65%; /* #8A9BC0 */
+    --accent: 224 37% 16%;           /* #1A2238 */
+    --accent-foreground: 221 53% 94%;
+    --destructive: 353 90% 61%;      /* #F54257 */
+    --destructive-foreground: 221 53% 94%;
+    --border: 224 37% 16%;           /* #1A2238 */
+    --input: 222 36% 15%;            /* #182033 */
+    --ring: 188 100% 48%;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Subtle film-grain overlay — the single cheapest lever against a flat,
+   vector-perfect "AI-generated" read on a dark background. Fixed so it
+   doesn't scroll with content; low opacity so it's felt, not seen. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Spinner shown by the SplineScene Suspense fallback (<span class="loader" />),
+   kept from the spline-scene-app starting block though nothing currently
+   suspends on it — harmless to leave defined. */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255, 255, 255, 0.25);
+  border-top-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  animation: loader-rotate 1s linear infinite;
+}
+
+@keyframes loader-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    animation-duration: 2.5s;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

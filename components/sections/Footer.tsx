@@ -1,9 +1,11 @@
 import Image from "next/image"
 
 const NAV = [
+  { href: "#physical-ai", label: "Physical AI" },
   { href: "#how-it-works", label: "How it works" },
   { href: "#features", label: "Features" },
   { href: "#trust", label: "Trust" },
+  { href: "#clinical-team", label: "For clinicians" },
   { href: "#get-app", label: "Get the app" },
 ]
 
@@ -33,8 +35,8 @@ export function Footer() {
               className="h-14 w-auto"
             />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Continuous pressure monitoring for prosthetic sockets — built so
-              the people wearing them can see what their fit is actually doing.
+              Physical AI for prosthetic sockets — sensing, inference, and
+              adjustment, on the limb.
             </p>
           </div>
 

@@ -53,12 +53,17 @@ const FACTORS: Factor[] = [
 
 /** Demo gauge — reflects the selected factor so the section shows the
  *  mechanism working, rather than describing it in four static boxes. */
+// Arc, needle, and label are keyed and remounted together by the parent on
+// every factor change (see the shared AnimatePresence below) — that's what
+// keeps the needle position and the label text from ever showing two
+// different factors at once. Independent spring timings per-element used to
+// let the needle lag behind text that had already switched.
 function RiskGauge({ level, label }: { level: number; label: string }) {
   const R = 78
   const CIRC = Math.PI * R // half-circle arc length
 
   return (
-    <div className="relative">
+    <div>
       <svg viewBox="0 0 200 120" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
         <defs>
           <linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="0">
@@ -80,34 +85,35 @@ function RiskGauge({ level, label }: { level: number; label: string }) {
           strokeWidth="9"
           strokeLinecap="round"
           strokeDasharray={CIRC}
+          initial={{ strokeDashoffset: CIRC }}
           animate={{ strokeDashoffset: CIRC * (1 - level) }}
-          transition={{ type: "spring", stiffness: 90, damping: 18 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         />
 
-        {/* Needle */}
+        {/* Needle — transformBox is what makes originX/Y resolve against the
+            svg's own viewBox coordinates (100,100) rather than this <g>'s own
+            (much smaller) bounding box, which is the default for SVG and
+            silently rotates the needle around the wrong point. The error is
+            proportional to the gauge's rendered size, so it was invisible
+            small and obvious once the gauge grew for the desktop layout. */}
         <motion.g
-          style={{ originX: "100px", originY: "100px" }}
+          style={{ originX: "100px", originY: "100px", transformBox: "view-box" }}
+          initial={{ rotate: -90 }}
           animate={{ rotate: -90 + level * 180 }}
-          transition={{ type: "spring", stiffness: 90, damping: 14 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           <line x1="100" y1="100" x2="100" y2="34" stroke="hsl(var(--foreground))" strokeWidth="2" strokeLinecap="round" />
           <circle cx="100" cy="100" r="5" fill="hsl(var(--foreground))" />
         </motion.g>
       </svg>
 
-      <div className="absolute inset-x-0 bottom-0 text-center">
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={label}
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.22 }}
-            className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
-          >
-            {label}
-          </motion.p>
-        </AnimatePresence>
+      {/* Normal flow, not absolutely positioned over the SVG — the needle's
+          pivot sits close to the arc's bottom edge, so an overlaid label
+          could visually cross the needle. A reserved min-height keeps this
+          the same size whether the label wraps to one line or two, so the
+          title/body below it never shifts position between factors. */}
+      <div className="mt-3 flex min-h-[34px] items-center justify-center text-center">
+        <p className="font-mono text-[11px] uppercase tracking-[0.16em] leading-snug text-muted-foreground">{label}</p>
       </div>
     </div>
   )
@@ -136,7 +142,7 @@ export function ClinicalTrust() {
         <Reveal>
           <SectionHeading
             eyebrow="Clinical basis"
-            title="A risk score you can audit, not one you have to trust blind."
+            title="A risk score you can audit."
             description="Four literature-grounded factors, combined per anatomical region — and always shown alongside the specific factors that produced the level, never just the level itself."
           />
         </Reveal>
@@ -144,7 +150,7 @@ export function ClinicalTrust() {
         {/* Interactive factor breakdown: an index on the left, the selected
             factor expanded on the right, driving a live gauge. Reads as one
             instrument rather than four repeated cards. */}
-        <div className="mt-16 grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] gap-10 lg:gap-16 items-start">
+        <div className="mt-16 grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] gap-10 lg:gap-16 items-start lg:items-center">
           <Reveal>
             <ul className="space-y-1">
               {FACTORS.map((f, i) => {
@@ -217,10 +223,9 @@ export function ClinicalTrust() {
 
           <Reveal delay={0.12}>
             <div className="relative rounded-3xl bg-[linear-gradient(160deg,hsl(var(--card)/0.9),hsl(var(--card)/0.35))] ring-1 ring-inset ring-foreground/[0.07] p-8 md:p-10">
-              <div className="max-w-[240px] mx-auto">
-                <RiskGauge level={current.level} label={current.short} />
-              </div>
-
+              {/* Gauge and copy are one keyed unit — they mount, animate, and
+                  unmount together so the needle and the words can never land
+                  on two different factors mid-transition. */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current.title}
@@ -228,15 +233,20 @@ export function ClinicalTrust() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                  className="mt-8"
                 >
-                  <h3 className="text-xl font-semibold text-foreground">{current.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{current.body}</p>
-                  <div className="mt-6 flex items-center gap-3">
-                    <span className="h-px w-6 bg-primary/60" />
-                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-primary/80">
-                      {current.basis}
-                    </span>
+                  <div className="max-w-[240px] lg:max-w-[300px] mx-auto">
+                    <RiskGauge level={current.level} label={current.short} />
+                  </div>
+
+                  <div className="mt-8">
+                    <h3 className="text-xl font-semibold text-foreground">{current.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{current.body}</p>
+                    <div className="mt-6 flex items-center gap-3">
+                      <span className="h-px w-6 bg-primary/60" />
+                      <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-primary/80">
+                        {current.basis}
+                      </span>
+                    </div>
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -254,16 +264,18 @@ export function ClinicalTrust() {
               &ldquo;
             </span>
             <blockquote className="-mt-6 text-xl md:text-2xl font-medium leading-snug text-foreground/90 text-balance">
-              The risk screening is deliberately a transparent heuristic, not a
-              trained classifier. There is no clinician-labelled ground truth to
-              train one against honestly yet — and a model fitted to an
-              unvalidated rule would only reproduce that rule&apos;s mistakes with{" "}
-              <span className="text-primary">less</span> visibility, not more accuracy.
+              The intelligence lives in the loop,{" "}
+              <span className="text-primary">not</span> in an unvalidated
+              classifier. Risk screening stays a transparent heuristic because
+              there is no clinician-labelled ground truth to train against
+              honestly yet. The learning happens where it is earned — in
+              on-device signal inference, and in the control policy that will
+              drive socket adjustment.
             </blockquote>
             <figcaption className="mt-8 flex items-center justify-center gap-3">
               <span className="h-px w-8 bg-primary/50" />
               <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-                Design principle, not a disclaimer
+                Design principle
               </span>
               <span className="h-px w-8 bg-primary/50" />
             </figcaption>

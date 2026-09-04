@@ -1,13 +1,13 @@
 "use client"
 
-import { useRef } from "react"
+import { Fragment, useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Spotlight } from "@/components/ui/spotlight"
 import { AuroraBackground } from "@/components/ui/aurora-background"
 import { Button } from "@/components/ui/button"
 
-const LINE_1 = "Know your fit,".split(" ")
-const LINE_2 = "before it's a problem.".split(" ")
+const LINE_1 = "The first socket that".split(" ")
+const LINE_2 = "knows what it's doing to you.".split(" ")
 
 const wordVariants = {
   hidden: { opacity: 0, y: 26, filter: "blur(8px)" },
@@ -39,7 +39,7 @@ export function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
               </span>
-              18-sensor pressure matrix · live 3D
+              Physical AI for prosthetic care · 18-channel sensing · on-device inference
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-foreground text-balance">
@@ -50,9 +50,12 @@ export function Hero() {
                 className="block"
               >
                 {LINE_1.map((w, i) => (
-                  <motion.span key={i} variants={wordVariants} transition={{ duration: 0.5, ease: "easeOut" }} className="inline-block mr-[0.22em]">
-                    {w}
-                  </motion.span>
+                  <Fragment key={i}>
+                    <motion.span variants={wordVariants} transition={{ duration: 0.5, ease: "easeOut" }} className="inline-block mr-[0.22em]">
+                      {w}
+                    </motion.span>
+                    {" "}
+                  </Fragment>
                 ))}
               </motion.span>
               <motion.span
@@ -62,9 +65,12 @@ export function Hero() {
                 className="block"
               >
                 {LINE_2.map((w, i) => (
-                  <motion.span key={i} variants={wordVariants} transition={{ duration: 0.5, ease: "easeOut" }} className="inline-block mr-[0.22em]">
-                    {w}
-                  </motion.span>
+                  <Fragment key={i}>
+                    <motion.span variants={wordVariants} transition={{ duration: 0.5, ease: "easeOut" }} className="inline-block mr-[0.22em]">
+                      {w}
+                    </motion.span>
+                    {" "}
+                  </Fragment>
                 ))}
               </motion.span>
             </h1>
@@ -75,10 +81,11 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.75 }}
               className="mt-6 text-lg text-muted-foreground max-w-md leading-relaxed"
             >
-              AVA Fit reads live pressure from eighteen sensors built into your
-              socket and turns it into a fit score you can actually see —
-              rendered in 3D on your own scan, screened for pressure-injury
-              risk, right on your phone.
+              AVA Fit closes the loop between the limb and the socket. Eighteen
+              pressure channels and a 6-axis IMU sense the interface
+              continuously, inference runs on the socket itself, and the
+              result reaches you as a fit score you can see — rendered in 3D
+              on your own scan, on your phone.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -89,8 +96,8 @@ export function Hero() {
               <Button href="#get-app" size="lg">
                 Get AVA Fit
               </Button>
-              <Button href="#how-it-works" variant="outline" size="lg">
-                See how it works
+              <Button href="#physical-ai" variant="outline" size="lg">
+                See the loop
               </Button>
             </motion.div>
           </motion.div>
@@ -106,7 +113,7 @@ export function Hero() {
             transition={{ duration: 1.1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="relative h-[300px] sm:h-[380px] md:h-[460px] pointer-events-none"
           >
-            <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_62%_62%_at_center,black_45%,transparent_92%)]">
+            <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_50%_50%_at_center,black_18%,transparent_78%)]">
               <video
                 className="absolute inset-0 h-full w-full object-cover"
                 src="/quatro-anim.mp4"

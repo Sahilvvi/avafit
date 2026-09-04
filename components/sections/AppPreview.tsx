@@ -40,8 +40,8 @@ export function AppPreview() {
         <Reveal>
           <SectionHeading
             eyebrow="Inside the app"
-            title="Not a mockup — this is the app, running live."
-            description="Captured from a real session on the current build, at true device size: the fit score, the live 3D pressure viewer, and the risk breakdown exactly as they appear in your hand."
+            title="Screens captured from the current build, at device size."
+            description="A real session on the current build: the fit score, the live 3D pressure viewer, and the risk breakdown exactly as they appear in your hand."
             align="center"
             className="mx-auto"
           />

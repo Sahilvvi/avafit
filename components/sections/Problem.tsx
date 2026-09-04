@@ -10,19 +10,19 @@ const POINTS: { stat: string; unit: string; label: string }[] = [
     stat: "Hours",
     unit: "the window fit changes in",
     label:
-      "Limb volume shifts across a single day of wear. A socket dialled in at 8am can be working loose by noon — and nothing about that is visible from the outside.",
+      "Limb volume shifts across a single day of wear. A socket dialed in at 8am can be working loose by noon, and nothing about that is visible from the outside.",
   },
   {
     stat: "Silent",
     unit: "how the damage arrives",
     label:
-      "Pressure injuries build gradually, under a liner, out of sight. They are often noticed only once the skin has already broken down and the socket has to come off entirely.",
+      "Pressure injuries build gradually, under a liner, out of sight. They are often noticed only once the skin has broken down and the socket has to come off entirely.",
   },
   {
     stat: "Weeks",
     unit: "between real measurements",
     label:
-      "Clinic visits happen periodically. What actually happens inside the socket in between — every step, every hour — has simply gone unmeasured.",
+      "Fittings are episodic; wear is continuous. What happens inside the socket in between has gone unmeasured.",
   },
 ]
 
@@ -43,7 +43,7 @@ function DriftChart() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
-      aria-label="Illustration: socket fit drifting from dialled in at 8am to working loose by 6pm"
+      aria-label="Illustration: socket fit drifting from dialed in at 8am to working loose by 6pm"
     >
       {/* plot gridlines */}
       {[58, 102, 147].map((y) => (
@@ -187,9 +187,9 @@ export function Problem() {
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <SectionHeading
-              eyebrow="Why fit matters"
-              title="Fit isn't a fixed setting. It drifts — and most people find out the hard way."
-              description="A socket that's dialled in at the clinic doesn't stay that way. The gap between when a problem starts and when it's finally felt is exactly where pressure injuries take hold."
+              eyebrow="Why fit drifts"
+              title="Every prosthetic socket today is an open loop."
+              description="A socket is shaped once, fitted once, and then asked to hold a body that changes hourly. Nothing in that system measures what it is doing, and nothing in it responds. The gap between when a problem starts and when it is finally felt is where pressure injuries take hold."
             />
           </Reveal>
 

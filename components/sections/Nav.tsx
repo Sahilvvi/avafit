@@ -7,6 +7,7 @@ import { Menu, X, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const LINKS = [
+  { href: "#physical-ai", id: "physical-ai", label: "Physical AI" },
   { href: "#how-it-works", id: "how-it-works", label: "How it works" },
   { href: "#features", id: "features", label: "Features" },
   { href: "#trust", id: "trust", label: "Trust" },

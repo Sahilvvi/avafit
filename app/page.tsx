@@ -1,10 +1,12 @@
 import { Nav } from "@/components/sections/Nav"
 import { Hero } from "@/components/sections/Hero"
 import { Problem } from "@/components/sections/Problem"
+import { PhysicalAI } from "@/components/sections/PhysicalAI"
 import { HowItWorks } from "@/components/sections/HowItWorks"
-import { Features } from "@/components/sections/Features"
 import { AppPreview } from "@/components/sections/AppPreview"
+import { Features } from "@/components/sections/Features"
 import { ClinicalTrust } from "@/components/sections/ClinicalTrust"
+import { ClinicalTeam } from "@/components/sections/ClinicalTeam"
 import { FAQ } from "@/components/sections/FAQ"
 import { CTA } from "@/components/sections/CTA"
 import { Footer } from "@/components/sections/Footer"
@@ -15,10 +17,12 @@ export default function Home() {
       <Nav />
       <Hero />
       <Problem />
+      <PhysicalAI />
       <HowItWorks />
-      <Features />
       <AppPreview />
+      <Features />
       <ClinicalTrust />
+      <ClinicalTeam />
       <FAQ />
       <CTA />
       <Footer />

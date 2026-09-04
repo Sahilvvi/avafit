@@ -2,7 +2,7 @@
 
 import { useRef } from "react"
 import { motion, useMotionValue, useMotionTemplate } from "framer-motion"
-import { Box, ShieldCheck, Compass, History, Activity, Bluetooth, type LucideIcon } from "lucide-react"
+import { Box, ShieldCheck, Compass, History, Activity, Bluetooth, ClipboardList, Cpu, type LucideIcon } from "lucide-react"
 import { SectionHeading } from "@/components/ui/section-heading"
 import { Reveal } from "@/components/ui/reveal"
 
@@ -128,19 +128,19 @@ const FEATURES: Feature[] = [
   {
     icon: Box,
     title: "Live 3D pressure map",
-    body: "Your own socket scan, rendered in 3D and coloured live by all 18 sensors — drag to rotate, pinch to zoom.",
+    body: "Your own socket scan, rendered in 3D and colored live by all 18 sensors — drag to rotate, pinch to zoom.",
     wide: true,
     visual: SensorMatrix,
   },
   {
     icon: ShieldCheck,
-    title: "Pressure-injury risk screening",
-    body: "A transparent heuristic — not a black-box model — that always shows the specific factors behind a risk level.",
+    title: "Pressure-injury risk indicators",
+    body: "A transparent heuristic that always shows the specific factors behind a risk level.",
   },
   {
     icon: Compass,
     title: "Socket fit suggestions",
-    body: "Per-region guidance — RELIEVE, ADD SUPPORT, or MONITOR — so you know not just where, but roughly what to do.",
+    body: "Per-region guidance — RELIEVE, ADD SUPPORT, and MONITOR — are observations for your prosthetist, not adjustment instructions.",
   },
   {
     icon: Activity,
@@ -160,6 +160,17 @@ const FEATURES: Feature[] = [
     icon: History,
     title: "Session & wear tracking",
     body: "Every session logged automatically, with wear time and trends you and your care team can look back on.",
+  },
+  {
+    icon: ClipboardList,
+    title: "Care-team session export",
+    body: "Wear time, per-region load, and event history in a form your prosthetist can review at the next fitting.",
+    wide: true,
+  },
+  {
+    icon: Cpu,
+    title: "Edge-resident inference",
+    body: "Filtering and classification run on the socket. No connectivity required for the system to keep working.",
   },
 ]
 
@@ -233,7 +244,7 @@ export function Features() {
         <Reveal>
           <SectionHeading
             eyebrow="What's actually in the app"
-            title="Every feature here is in the product today — nothing on this page is a mockup."
+            title="What's in the build today."
           />
         </Reveal>
 

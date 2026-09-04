@@ -10,21 +10,21 @@ import { SpotlightCursor } from "@/components/ui/spotlight-cursor"
 const STEPS: { n: string; kicker: string; title: string; body: string }[] = [
   {
     n: "01",
-    kicker: "Measure",
-    title: "Eighteen sensors, one socket",
-    body: "Two 3×3 pressure pads — anterior and posterior — plus a 6-axis IMU, reading pressure and motion continuously while the socket is worn.",
+    kicker: "Sense",
+    title: "Eighteen channels, one socket",
+    body: "Pressure and motion, read continuously while the socket is worn.",
   },
   {
     n: "02",
-    kicker: "See",
-    title: "See it, don't guess it",
-    body: "A live 3D render of your own socket scan, colour-mapped by real-time pressure. A hot spot becomes something you can see, not something you infer from a number.",
+    kicker: "Interpret",
+    title: "Filtered per cell, then combined into pressure-time integral, load concentration, and no-relief duration by anatomical region.",
+    body: "Computed on the socket, not uploaded and returned.",
   },
   {
     n: "03",
-    kicker: "Screen",
-    title: "Screened, not just measured",
-    body: "Pressure-time integral, load concentration, and stretches with no relief combine into a risk read — and it always shows its factors, never a black-box score.",
+    kicker: "Surface",
+    title: "A live 3D render of your own socket scan",
+    body: "Colored by real pressure, with the specific factors behind every risk indicator shown openly.",
   },
 ]
 
@@ -68,8 +68,8 @@ export function HowItWorks() {
       <div className="relative mx-auto max-w-6xl px-6">
         <Reveal>
           <SectionHeading
-            eyebrow="How AVA Fit works"
-            title="From raw pressure to a plain answer, in one pipeline."
+            eyebrow="The pipeline"
+            title="From raw pressure to a clear answer, on the device."
             align="center"
             className="mx-auto"
           />

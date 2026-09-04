@@ -83,8 +83,8 @@ export function CTA() {
             </span>
           </h2>
           <p className="mt-8 text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            AVA Fit is in active testing now. The App Store link goes live at
-            launch — check back soon, or share this page with your care team.
+            AVA Fit is in active testing. The App Store link goes live at
+            launch — check back, or share this page with your care team.
           </p>
           <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
             <Button variant="outline" size="lg" disabled className="opacity-70">

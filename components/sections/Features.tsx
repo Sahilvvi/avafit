@@ -11,56 +11,7 @@ import { Reveal } from "@/components/ui/reveal"
  * so the wide cells carry evidence rather than decorative filler.
  * ------------------------------------------------------------------ */
 
-/** The real sensor layout: two 3×3 pads, anterior and posterior, cycling
- *  through plausible pressure levels. */
-function SensorMatrix() {
-  const PADS = [0, 1]
-  // Scale of pressure levels, low → high.
-  const SCALE = [
-    "hsl(var(--primary) / 0.18)",
-    "hsl(var(--primary) / 0.40)",
-    "rgba(245, 200, 66, 0.50)",
-    "rgba(245, 66, 87, 0.62)",
-  ]
-  // A resting pattern per pad, hotter toward the centre/distal cells — the
-  // kind of distribution the app actually surfaces as a spot to watch.
-  const BASE = [
-    [0, 1, 0, 1, 2, 1, 1, 2, 1],
-    [1, 0, 0, 2, 3, 1, 1, 1, 0],
-  ]
-
-  return (
-    <div className="flex items-center gap-5" aria-hidden>
-      {PADS.map((pad) => (
-        <div key={pad} className="grid grid-cols-3 gap-1.5">
-          {Array.from({ length: 9 }).map((_, i) => {
-            const base = BASE[pad][i]
-            // Always breathe one step around the resting level, so no cell
-            // is ever visually frozen.
-            const lo = SCALE[Math.max(0, base - 1)]
-            const at = SCALE[base]
-            const hi = SCALE[Math.min(SCALE.length - 1, base + 1)]
-            return (
-              <motion.span
-                key={i}
-                className="h-4 w-4 rounded-[4px] ring-1 ring-inset ring-foreground/[0.08]"
-                animate={{ backgroundColor: [lo, at, hi, at, lo] }}
-                transition={{
-                  duration: 4.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: ((i * 7 + pad * 3) % 9) * 0.22,
-                }}
-              />
-            )
-          })}
-        </div>
-      ))}
-    </div>
-  )
-}
-
-/** Raw signal vs the filtered one — the whole point of the Kalman stage. */
+/** Raw signal vs the filtered one — the whole point of the filtering stage. */
 function FilterTrace() {
   const RAW =
     "M0,34 L14,22 L26,40 L38,18 L52,44 L64,20 L78,38 L92,16 L104,42 L118,24 L132,36 L146,20 L160,38 L174,26 L188,34"
@@ -119,8 +70,6 @@ type Feature = {
   icon: LucideIcon
   title: string
   body: string
-  /** Column span at md+. Wide cells carry a visual. */
-  wide?: boolean
   visual?: () => JSX.Element
 }
 
@@ -129,8 +78,6 @@ const FEATURES: Feature[] = [
     icon: Box,
     title: "Live 3D pressure map",
     body: "Your own socket scan, rendered in 3D and colored live by the pressure matrix — drag to rotate, pinch to zoom.",
-    wide: true,
-    visual: SensorMatrix,
   },
   {
     icon: ShieldCheck,
@@ -144,16 +91,14 @@ const FEATURES: Feature[] = [
   },
   {
     icon: Activity,
-    title: "Kalman-filtered sensor data",
+    title: "Filtered sensor data",
     body: "A per-cell filter separates genuine pressure change from sensor noise and slow compression drift.",
-    wide: true,
     visual: FilterTrace,
   },
   {
     icon: Bluetooth,
     title: "Bluetooth, with a fallback",
     body: "Connects straight to your socket over BLE, with a bridge connection as a reliable second path.",
-    wide: true,
     visual: LinkViz,
   },
   {
@@ -165,7 +110,6 @@ const FEATURES: Feature[] = [
     icon: ClipboardList,
     title: "Care-team session export",
     body: "Wear time, per-region load, and event history in a form your prosthetist can review at the next fitting.",
-    wide: true,
   },
   {
     icon: Cpu,
@@ -212,8 +156,8 @@ function FeatureCell({ feature, index }: { feature: Feature; index: number }) {
           className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.10] to-transparent"
         />
 
-        <div className={`relative flex h-full gap-6 ${feature.wide ? "flex-col sm:flex-row sm:items-center" : "flex-col"}`}>
-          <div className="flex-1">
+        <div className="relative flex h-full flex-col gap-5">
+          <div>
             <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 ring-1 ring-inset ring-primary/15 transition-transform duration-300 group-hover:scale-105">
               <feature.icon className="h-[18px] w-[18px] text-primary" strokeWidth={1.6} />
             </span>
@@ -222,7 +166,7 @@ function FeatureCell({ feature, index }: { feature: Feature; index: number }) {
           </div>
 
           {Visual && (
-            <div className="shrink-0 sm:pl-2 opacity-80 transition-opacity duration-300 group-hover:opacity-100">
+            <div className="mt-auto flex items-center justify-center pt-1 opacity-80 transition-opacity duration-300 group-hover:opacity-100">
               <Visual />
             </div>
           )}
@@ -248,13 +192,11 @@ export function Features() {
           />
         </Reveal>
 
-        {/* Asymmetric bento: the three features with something to show get the
-            wide cells, so the grid has rhythm instead of six identical boxes. */}
-        <div className="mt-16 grid gap-4 md:grid-cols-3">
+        {/* Uniform grid — every card the same size, so the visuals sit
+            inside the card rather than dictating its footprint. */}
+        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((f, i) => (
-            <div key={f.title} className={f.wide ? "md:col-span-2" : "md:col-span-1"}>
-              <FeatureCell feature={f} index={i} />
-            </div>
+            <FeatureCell key={f.title} feature={f} index={i} />
           ))}
         </div>
       </div>

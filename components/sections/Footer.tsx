@@ -27,12 +27,17 @@ export function Footer() {
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="grid gap-12 md:grid-cols-[1.2fr_1fr] md:gap-8">
           <div>
+            {/* AVA Fit leads as the title; the Quorum mark sits underneath
+                it as the maker's mark. */}
+            <span className="block text-xl font-bold leading-none tracking-tight text-foreground">
+              AVA Fit
+            </span>
             <Image
               src="/logo-icon.png"
               alt="Quorum 3D Labs & Prosthetics"
               width={900}
               height={270}
-              className="h-9 w-auto"
+              className="mt-2.5 h-5 w-auto"
             />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
               Physical AI for prosthetic sockets — sensing, inference, and

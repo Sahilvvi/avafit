@@ -5,6 +5,7 @@ import { PhysicalAI } from "@/components/sections/PhysicalAI"
 import { HowItWorks } from "@/components/sections/HowItWorks"
 import { AppPreview } from "@/components/sections/AppPreview"
 import { Features } from "@/components/sections/Features"
+import { SocketExplorer } from "@/components/sections/SocketExplorer"
 import { ClinicalTrust } from "@/components/sections/ClinicalTrust"
 import { ClinicalTeam } from "@/components/sections/ClinicalTeam"
 import { FAQ } from "@/components/sections/FAQ"
@@ -21,6 +22,7 @@ export default function Home() {
       <HowItWorks />
       <AppPreview />
       <Features />
+      <SocketExplorer />
       <ClinicalTrust />
       <ClinicalTeam />
       <FAQ />

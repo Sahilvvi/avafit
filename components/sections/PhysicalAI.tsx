@@ -26,7 +26,7 @@ const COLUMNS: Column[] = [
     icon: Cpu,
     n: "02",
     title: "Reason",
-    body: "Inference runs on the socket. Per-cell Kalman filtering separates genuine pressure change from sensor noise and slow compression drift; embedded models classify activity and load state without a cloud round trip. The socket does not need a signal to know what is happening.",
+    body: "Inference runs on the socket. Per-cell filtering separates genuine pressure change from sensor noise and slow compression drift; embedded models classify activity and load state without a cloud round trip. The socket does not need a signal to know what is happening.",
     tag: "Shipping",
   },
   {

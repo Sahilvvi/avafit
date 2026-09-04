@@ -110,7 +110,7 @@ export function PhysicalAI() {
         <Reveal>
           <SectionHeading
             eyebrow="Sense · Reason · Act"
-            title="Physical AI is intelligence that touches you back."
+            title="Physical AI is intelligence that moves with you."
             description="Software that only predicts is still a spectator. AVA Fit is built as a control loop that runs on the body: sensors that read the interface under real gait, inference that runs on the socket without a network, and hardware that will act on what it learns."
             align="center"
             className="mx-auto max-w-2xl"
@@ -125,7 +125,7 @@ export function PhysicalAI() {
 
         <Reveal delay={0.3}>
           <p className="mt-14 text-center text-sm md:text-base leading-relaxed text-muted-foreground">
-            Phase 1 puts the sensing and the inference on the limb. Phase 2 gives them hands.
+            Phase 1 puts the sensing and the inference on the limb. Phase 2 actuates.
           </p>
         </Reveal>
       </div>

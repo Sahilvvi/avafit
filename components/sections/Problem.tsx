@@ -7,8 +7,8 @@ import { Reveal } from "@/components/ui/reveal"
 
 const POINTS: { stat: string; unit: string; label: string }[] = [
   {
-    stat: "Hours",
-    unit: "the window fit changes in",
+    stat: "Change",
+    unit: "fit varies by the hour",
     label:
       "Limb volume shifts across a single day of wear. A socket dialed in at 8am can be working loose by noon, and nothing about that is visible from the outside.",
   },

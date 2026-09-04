@@ -113,13 +113,18 @@ export function ClinicalTeam() {
         </div>
 
         <Reveal delay={0.3}>
-          <div className="mt-16 flex items-center justify-center gap-3">
-            <span className="h-px w-8 bg-primary/50" />
-            <p className="text-center font-mono text-[11px] uppercase tracking-[0.14em] leading-relaxed text-muted-foreground/70 max-w-2xl">
-              Developed with Quorum Prosthetics and validated against Tekscan I-Scan pressure mapping, in studies
-              with the University of Michigan, CU, CSU, and the Department of Veterans Affairs.
+          <div className="mt-16 flex flex-col items-center justify-center gap-4">
+            <p className="text-center font-mono text-[11px] uppercase tracking-[0.14em] text-primary/80">
+              Designed and developed by Quorum Prosthetics
             </p>
-            <span className="h-px w-8 bg-primary/50" />
+            <div className="flex items-center justify-center gap-3">
+              <span className="h-px w-8 bg-primary/50" />
+              <p className="text-center font-mono text-[11px] uppercase tracking-[0.14em] leading-relaxed text-muted-foreground/70 max-w-2xl">
+                Developed with Quorum Prosthetics and validated against Tekscan I-Scan pressure mapping, in studies
+                with the University of Michigan, CU, CSU, and the Department of Veterans Affairs.
+              </p>
+              <span className="h-px w-8 bg-primary/50" />
+            </div>
           </div>
         </Reveal>
       </div>

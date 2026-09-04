@@ -24,7 +24,7 @@ const QA: { q: string; a: string }[] = [
   },
   {
     q: "Do I need a specific socket for it to work?",
-    a: "No. AVA Fit is built around an 18-channel pressure array — two 3×3 pads, anterior and posterior — fitted into your socket, and it renders whatever 3D scan of that socket you load. It maps to your socket rather than requiring you to have a particular one.",
+    a: "No. AVA Fit is built around a pressure matrix — two 3×3 pads, anterior and posterior — fitted into your socket, and it renders whatever 3D scan of that socket you load. It maps to your socket rather than requiring you to have a particular one.",
   },
   {
     q: "Why isn't the risk level just a simple pass or fail?",

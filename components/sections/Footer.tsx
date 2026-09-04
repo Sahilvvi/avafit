@@ -28,11 +28,11 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.2fr_1fr] md:gap-8">
           <div>
             <Image
-              src="/logo-full.png"
-              alt="AVA Fit — Powered by Quorum Prosthetics"
-              width={811}
-              height={369}
-              className="h-14 w-auto"
+              src="/logo-icon.png"
+              alt="Quorum 3D Labs & Prosthetics"
+              width={900}
+              height={270}
+              className="h-9 w-auto"
             />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
               Physical AI for prosthetic sockets — sensing, inference, and
@@ -61,7 +61,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col gap-4 border-t border-border/40 pt-8 md:flex-row md:items-center md:justify-between">
           <p className="max-w-xl text-xs leading-relaxed text-muted-foreground/80">
-            AVA Fit is a clinical research tool. It supports — and does not
+            AVA Fit™ is a clinical research tool. It supports — and does not
             replace — professional assessment by your prosthetist or clinician.
           </p>
           <p className="shrink-0 font-mono text-xs text-muted-foreground/60">

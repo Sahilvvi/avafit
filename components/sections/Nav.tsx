@@ -137,12 +137,12 @@ export function Nav() {
                 wrapper — an animated flex parent collapses the intrinsic
                 width that `w-auto` depends on, which blanks the image. */}
             <Image
-              src="/logo-wordmark.png"
-              alt="AVA Fit"
-              width={798}
-              height={256}
+              src="/logo-icon.png"
+              alt="Quorum 3D Labs & Prosthetics"
+              width={900}
+              height={270}
               className={`w-auto transition-[height] duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
-                scrolled ? "h-[30px]" : "h-[38px]"
+                scrolled ? "h-[26px]" : "h-[32px]"
               }`}
               priority
             />

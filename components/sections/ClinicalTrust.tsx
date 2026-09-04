@@ -38,7 +38,7 @@ const FACTORS: Factor[] = [
     title: "Load concentration",
     short: "Spread out, or all in one spot",
     body: "A Gini coefficient across the sensor array. The same total load reads very differently when it is carried broadly by the socket wall versus driven through a single sharp point of contact.",
-    basis: "Distribution across 18 channels",
+    basis: "Distribution across the pressure matrix",
     level: 0.45,
   },
   {

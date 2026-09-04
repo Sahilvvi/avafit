@@ -11,14 +11,14 @@ const STEPS: { n: string; kicker: string; title: string; body: string }[] = [
   {
     n: "01",
     kicker: "Sense",
-    title: "Eighteen channels, one socket",
+    title: "Pressure matrix, one socket",
     body: "Pressure and motion, read continuously while the socket is worn.",
   },
   {
     n: "02",
     kicker: "Interpret",
-    title: "Filtered per cell, then combined into pressure-time integral, load concentration, and no-relief duration by anatomical region.",
-    body: "Computed on the socket, not uploaded and returned.",
+    title: "Computation on the socket",
+    body: "Filtered per cell, then combined into pressure-time integral, load concentration, and no-relief duration by anatomical region — computed on the socket, not uploaded and returned.",
   },
   {
     n: "03",

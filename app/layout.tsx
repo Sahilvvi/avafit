@@ -17,9 +17,9 @@ const dmMono = DM_Mono({
   variable: "--font-dm-mono",
 })
 
-const TITLE = "AVA Fit — Know your socket fit, before it's a problem"
+const TITLE = "AVA Fit — Adaptive Volume Adjustment Socket"
 const DESCRIPTION =
-  "AVA Fit reads live pressure from 18 sensors inside your prosthetic socket and turns it into a clear, real-time picture of your fit — so pressure injuries get caught early, not after the fact."
+  "AVA Fit closes the loop between the limb and the socket. A pressure matrix and a 6-axis IMU sense the interface continuously, inference runs on the socket itself, and the result reaches you as a fit score you can see."
 
 // Resolves the absolute base for OG/Twitter image URLs. Vercel sets
 // VERCEL_URL automatically on every deployment (preview and production), so

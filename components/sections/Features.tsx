@@ -128,7 +128,7 @@ const FEATURES: Feature[] = [
   {
     icon: Box,
     title: "Live 3D pressure map",
-    body: "Your own socket scan, rendered in 3D and colored live by all 18 sensors — drag to rotate, pinch to zoom.",
+    body: "Your own socket scan, rendered in 3D and colored live by the pressure matrix — drag to rotate, pinch to zoom.",
     wide: true,
     visual: SensorMatrix,
   },

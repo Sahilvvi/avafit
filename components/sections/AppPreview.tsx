@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { SectionHeading } from "@/components/ui/section-heading"
 import { Reveal } from "@/components/ui/reveal"
 import { PhoneMockup } from "@/components/ui/phone-mockup"
+import { LaptopMockup } from "@/components/ui/laptop-mockup"
 
 const SHOTS = [
   {
@@ -11,7 +12,7 @@ const SHOTS = [
     alt: "AVA Fit Today screen — fit score, connection state, and the spot to watch",
     label: "Today",
     caption:
-      "One score, the spot worth watching, and what to do about it — before you go looking for detail.",
+      "A score to identify pressure points, with next steps — quantitative and qualitative feedback.",
     rotate: 8,
     offsetY: 0,
   },
@@ -83,6 +84,31 @@ export function AppPreview() {
             </div>
           ))}
         </div>
+
+        <Reveal delay={0.2}>
+          <div className="mt-20 flex flex-col items-center md:mt-28">
+            <LaptopMockup
+              src="/screenshot-laptop-screen.png"
+              alt="AVA Fit desktop software — live 3D pressure point cloud with fit and pressure controls"
+              screenWidth={1370}
+              screenHeight={850}
+              className="w-full max-w-md sm:max-w-lg"
+            />
+
+            <div className="mt-10 w-full max-w-sm text-center">
+              <div className="flex items-center justify-center gap-3">
+                <span className="h-px w-8 bg-gradient-to-r from-transparent to-primary/50" />
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+                  Smart fit monitoring
+                </span>
+                <span className="h-px w-8 bg-gradient-to-l from-transparent to-primary/50" />
+              </div>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                Access real-time pressure data and fit insights through AI analytical software.
+              </p>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )

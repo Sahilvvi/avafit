@@ -39,7 +39,7 @@ export function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
               </span>
-              Physical AI for prosthetic care · 18-channel sensing · on-device inference
+              Physical AI for prosthetic care · pressure matrix sensing · on-device inference
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-foreground text-balance">
@@ -81,8 +81,8 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.75 }}
               className="mt-6 text-lg text-muted-foreground max-w-md leading-relaxed"
             >
-              AVA Fit closes the loop between the limb and the socket. Eighteen
-              pressure channels and a 6-axis IMU sense the interface
+              AVA Fit™ closes the loop between the limb and the socket. A
+              pressure matrix and a 6-axis IMU sense the interface
               continuously, inference runs on the socket itself, and the
               result reaches you as a fit score you can see — rendered in 3D
               on your own scan, on your phone.

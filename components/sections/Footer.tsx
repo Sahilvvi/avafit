@@ -32,13 +32,18 @@ export function Footer() {
             <span className="block text-xl font-bold leading-none tracking-tight text-foreground">
               AVA Fit
             </span>
-            <Image
-              src="/logo-icon.png"
-              alt="Quorum 3D Labs & Prosthetics"
-              width={900}
-              height={270}
-              className="mt-2.5 h-5 w-auto"
-            />
+            <div className="mt-2.5 flex items-center gap-2">
+              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground/70">
+                Powered by
+              </span>
+              <Image
+                src="/logo-icon.png"
+                alt="Quorum 3D Labs & Prosthetics"
+                width={900}
+                height={270}
+                className="h-5 w-auto"
+              />
+            </div>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
               Physical AI for prosthetic sockets — sensing, inference, and
               adjustment, on the limb.

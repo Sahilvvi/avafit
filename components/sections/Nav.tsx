@@ -146,16 +146,25 @@ export function Nav() {
             {/* Height is driven by a CSS transition rather than a motion
                 wrapper — an animated flex parent collapses the intrinsic
                 width that `w-auto` depends on, which blanks the image. */}
-            <Image
-              src="/logo-icon.png"
-              alt="Quorum 3D Labs & Prosthetics"
-              width={900}
-              height={270}
-              className={`mt-1 w-auto transition-[height] duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
-                scrolled ? "h-[13px]" : "h-[15px]"
-              }`}
-              priority
-            />
+            <div className="mt-1 flex items-center gap-1.5">
+              <span
+                className={`font-mono uppercase tracking-[0.14em] text-muted-foreground/70 transition-[font-size] duration-500 ${
+                  scrolled ? "text-[8px]" : "text-[9px]"
+                }`}
+              >
+                Powered by
+              </span>
+              <Image
+                src="/logo-icon.png"
+                alt="Quorum 3D Labs & Prosthetics"
+                width={900}
+                height={270}
+                className={`w-auto transition-[height] duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
+                  scrolled ? "h-[13px]" : "h-[15px]"
+                }`}
+                priority
+              />
+            </div>
           </motion.a>
 
           <nav className="hidden md:flex items-center gap-0.5 absolute left-1/2 -translate-x-1/2">

@@ -146,9 +146,9 @@ export function Nav() {
             {/* Height is driven by a CSS transition rather than a motion
                 wrapper — an animated flex parent collapses the intrinsic
                 width that `w-auto` depends on, which blanks the image. */}
-            <div className="mt-1 flex items-center gap-1.5">
+            <div className="mt-0.5 flex items-center gap-1.5 leading-none">
               <span
-                className={`font-mono uppercase tracking-[0.14em] text-muted-foreground/70 transition-[font-size] duration-500 ${
+                className={`font-mono leading-none uppercase tracking-[0.14em] text-muted-foreground/70 transition-[font-size] duration-500 ${
                   scrolled ? "text-[8px]" : "text-[9px]"
                 }`}
               >

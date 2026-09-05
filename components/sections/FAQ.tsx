@@ -8,14 +8,14 @@ import { Reveal } from "@/components/ui/reveal"
 const QA: { q: string; a: string }[] = [
   {
     q: "Will this tell me my socket is failing before my skin does?",
-    a: "That is the whole point of it. Pressure injuries build under the liner, out of sight, and by the time you feel them the tissue damage has usually already started. AVA Fit watches the pressure continuously and flags the pattern — sustained load, no relief, a hot spot concentrating — while it is still just a pattern.",
+    a: "That is the whole point of it. Pressure injuries build under the liner, out of sight, and by the time you feel them the tissue damage has usually already started. AVA Fit© watches the pressure continuously and flags the pattern — sustained load, no relief, a hot spot concentrating — while it is still just a pattern.",
   },
   {
     q: "How does my prosthetist use this?",
     a: "You bring in the session history from between visits — wear time, per-region load, and event history — referenced to socket anatomy rather than raw sensor indices. That turns a fitting into a review of what actually happened, instead of a conversation built entirely on what you remember.",
   },
   {
-    q: "Is AVA Fit a medical device?",
+    q: "Is AVA Fit© a medical device?",
     a: "No. It is a clinical research tool. It surfaces pressure data clearly and shows its reasoning openly, but it does not diagnose anything and it does not replace your prosthetist's assessment. Think of it as instrumentation between appointments, not a verdict.",
   },
   {
@@ -24,11 +24,11 @@ const QA: { q: string; a: string }[] = [
   },
   {
     q: "Do I need a specific socket for it to work?",
-    a: "No. AVA Fit is built around a pressure matrix — two 3×3 pads, anterior and posterior — fitted into your socket, and it renders whatever 3D scan of that socket you load. It maps to your socket rather than requiring you to have a particular one.",
+    a: "No. AVA Fit© is built around a pressure matrix — two 3×3 pads, anterior and posterior — fitted into your socket, and it renders whatever 3D scan of that socket you load. It maps to your socket rather than requiring you to have a particular one.",
   },
   {
     q: "Why isn't the risk level just a simple pass or fail?",
-    a: "Because pressure-injury risk is not binary, and a single number you cannot interrogate is worse than no number at all. AVA Fit always shows the four factors behind a level — pressure-time integral, no-relief duration, load concentration, distal-load drift — so you and your prosthetist can see which one moved and why.",
+    a: "Because pressure-injury risk is not binary, and a single number you cannot interrogate is worse than no number at all. AVA Fit© always shows the four factors behind a level — pressure-time integral, no-relief duration, load concentration, distal-load drift — so you and your prosthetist can see which one moved and why.",
   },
   {
     q: "What if the Bluetooth connection drops mid-session?",

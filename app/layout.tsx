@@ -17,9 +17,9 @@ const dmMono = DM_Mono({
   variable: "--font-dm-mono",
 })
 
-const TITLE = "AVA Fit — Adaptive Volume Adjustment Socket"
+const TITLE = "AVA Fit© — Adaptive Volume Adjustment Socket"
 const DESCRIPTION =
-  "AVA Fit closes the loop between the limb and the socket. A pressure matrix and a 6-axis IMU sense the interface continuously, inference runs on the socket itself, and the result reaches you as a fit score you can see."
+  "AVA Fit© closes the loop between the limb and the socket. A pressure matrix and a 6-axis IMU sense the interface continuously, inference runs on the socket itself, and the result reaches you as a fit score you can see."
 
 // Resolves the absolute base for OG/Twitter image URLs. Vercel sets
 // VERCEL_URL automatically on every deployment (preview and production), so
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    siteName: "AVA Fit",
+    siteName: "AVA Fit©",
     type: "website",
   },
   twitter: {

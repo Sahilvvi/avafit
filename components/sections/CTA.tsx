@@ -71,7 +71,7 @@ export function CTA() {
       <div className="relative mx-auto max-w-3xl px-6 text-center">
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-[0.24em] text-primary mb-8">
-            Get AVA Fit
+            Get AVA Fit©
           </p>
           <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground text-balance leading-[1.06]">
             Your socket is already
@@ -83,7 +83,7 @@ export function CTA() {
             </span>
           </h2>
           <p className="mt-8 text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            AVA Fit is in active testing. The App Store link goes live at
+            AVA Fit© is in active testing. The App Store link goes live at
             launch — check back, or share this page with your care team.
           </p>
           <div className="mt-12 flex flex-wrap items-center justify-center gap-4">

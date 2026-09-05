@@ -111,7 +111,7 @@ export function PhysicalAI() {
           <SectionHeading
             eyebrow="Sense · Reason · Act"
             title="Physical AI is intelligence that moves with you."
-            description="Software that only predicts is still a spectator. AVA Fit is built as a control loop that runs on the body: sensors that read the interface under real gait, inference that runs on the socket without a network, and hardware that will act on what it learns."
+            description="Software that only predicts is still a spectator. AVA Fit© is built as a control loop that runs on the body: sensors that read the interface under real gait, inference that runs on the socket without a network, and hardware that will act on what it learns."
             align="center"
             className="mx-auto max-w-2xl"
           />

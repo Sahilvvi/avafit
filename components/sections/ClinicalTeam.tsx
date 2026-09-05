@@ -100,7 +100,7 @@ export function ClinicalTeam() {
           <SectionHeading
             eyebrow="For the clinical team"
             title="What the socket saw between visits."
-            description="Between fittings, you are working from what the patient remembers. AVA Fit gives you the record."
+            description="Between fittings, you are working from what the patient remembers. AVA Fit© gives you the record."
             align="center"
             className="mx-auto max-w-2xl"
           />

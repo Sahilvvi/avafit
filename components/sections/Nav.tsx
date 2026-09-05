@@ -141,7 +141,7 @@ export function Nav() {
                 scrolled ? "text-[15px]" : "text-[18px]"
               }`}
             >
-              AVA Fit
+              AVA Fit©
             </span>
             {/* Height is driven by a CSS transition rather than a motion
                 wrapper — an animated flex parent collapses the intrinsic
@@ -193,7 +193,7 @@ export function Nav() {
 
           <div className="hidden md:block shrink-0">
             <Button href="#get-app" size={scrolled ? "sm" : "default"} className="group">
-              Get AVA Fit
+              Get AVA Fit©
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
             </Button>
           </div>
@@ -265,7 +265,7 @@ export function Nav() {
                 className="pt-4"
               >
                 <Button href="#get-app" size="lg" className="w-full" onClick={() => setMenuOpen(false)}>
-                  Get AVA Fit
+                  Get AVA Fit©
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </motion.div>

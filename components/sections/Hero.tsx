@@ -81,7 +81,7 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.75 }}
               className="mt-6 text-lg text-muted-foreground max-w-md leading-relaxed"
             >
-              AVA Fit™ closes the loop between the limb and the socket. A
+              AVA Fit© closes the loop between the limb and the socket. A
               pressure matrix and a 6-axis IMU sense the interface
               continuously, inference runs on the socket itself, and the
               result reaches you as a fit score you can see — rendered in 3D
@@ -94,7 +94,7 @@ export function Hero() {
               className="mt-10 flex flex-wrap items-center gap-4"
             >
               <Button href="#get-app" size="lg">
-                Get AVA Fit
+                Get AVA Fit©
               </Button>
               <Button href="#physical-ai" variant="outline" size="lg">
                 See the loop

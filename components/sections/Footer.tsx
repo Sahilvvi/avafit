@@ -33,7 +33,7 @@ export function Footer() {
               AVA Fit©
             </span>
             <div className="mt-1.5 flex items-center gap-2 leading-none">
-              <span className="font-mono leading-none text-[10px] uppercase tracking-[0.14em] text-muted-foreground/70">
+              <span className="font-mono leading-none text-[10px] uppercase tracking-[0.02em] text-muted-foreground/70">
                 Powered by
               </span>
               <Image

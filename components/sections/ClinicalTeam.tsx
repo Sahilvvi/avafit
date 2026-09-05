@@ -120,29 +120,12 @@ export function ClinicalTeam() {
             <div className="flex items-center justify-center gap-3">
               <span className="h-px w-8 bg-primary/50" />
               <p className="text-center font-mono text-[11px] uppercase tracking-[0.14em] leading-relaxed text-muted-foreground/70 max-w-2xl">
-                Developed with Quorum Prosthetics and validated against Tekscan I-Scan pressure mapping, in studies
-                with the University of Michigan, CU, CSU, and the Department of Veterans Affairs.
+                AVA Fit&copy; is the intelligent, adaptive evolution of Quorum&apos;s QUATRO socket platform —
+                built on QUATRO&apos;s proven adjustability and mechanical design, with embedded sensing and
+                adaptive control added to keep fit optimal through daily volume changes.
               </p>
               <span className="h-px w-8 bg-primary/50" />
             </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.35}>
-          <div className="relative mt-14 mx-auto max-w-3xl overflow-hidden rounded-2xl bg-[linear-gradient(160deg,hsl(var(--card)/0.7),hsl(var(--card)/0.22))] p-8 ring-1 ring-inset ring-foreground/[0.06] md:p-10">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.10] to-transparent"
-            />
-            <p className="text-center text-base leading-relaxed text-foreground/90 md:text-lg">
-              AVA Fit&copy; is the intelligent, adaptive evolution of Quorum&apos;s QUATRO socket platform.
-            </p>
-            <p className="mt-4 text-center text-sm leading-relaxed text-muted-foreground md:text-base">
-              Built on QUATRO&apos;s proven adjustability and mechanical design, AVA Fit&copy; adds embedded
-              sensing and adaptive control to maintain optimal fit through daily volume changes. It turns
-              QUATRO from a static interface into a responsive closed-loop system, preserving comfort,
-              suspension integrity, and load distribution in real-world use.
-            </p>
           </div>
         </Reveal>
       </div>

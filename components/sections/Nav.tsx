@@ -152,7 +152,7 @@ export function Nav() {
                   scrolled ? "text-[8px]" : "text-[9px]"
                 }`}
               >
-                Powered by
+                by
               </span>
               <Image
                 src="/logo-icon.png"

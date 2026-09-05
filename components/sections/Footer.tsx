@@ -34,7 +34,7 @@ export function Footer() {
             </span>
             <div className="mt-1.5 flex items-center gap-2 leading-none">
               <span className="font-mono leading-none text-[10px] uppercase tracking-[0.02em] text-muted-foreground/70">
-                Powered by
+                by
               </span>
               <Image
                 src="/logo-icon.png"
